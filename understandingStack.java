@@ -16,5 +16,6 @@ public class UnderstandingStackDs {
     public static String getInput(Scanner sc) {
         String s = sc.next();
         return s;
+        st.close;
     }
 }
