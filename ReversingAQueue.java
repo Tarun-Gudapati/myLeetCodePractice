@@ -12,10 +12,43 @@ public class UnderstandingQueue {
         queue.add("10");
         queue.add("20");
         queue.add("30");
-        int len = queue.size();
+        queue.add("40");
+        queue.add("50");
+        queue.add("60");
 
-        System.out.println(reversedQue(queue));
+        int target = 4;
+        System.out.println(reverseTargetedAreaInAQueue(queue, target));
 
+        // System.out.println(reversedQue(queue));
+
+    }
+
+    public static Queue<String> reverseTargetedAreaInAQueue(Queue<String> queue, int target) {
+        int len = target;
+        Stack<String> stack = new Stack<>();
+        while (len > 0) {
+            String e = queue.poll();
+            stack.push(e);
+            len--;
+
+        }
+        len = stack.size();
+        while (len > 0) {
+
+            String m = stack.pop();
+            queue.add(m);
+            len--;
+        }
+        int repeatTimes = queue.size() - target;
+        while (repeatTimes > 0) {
+
+            String x = queue.poll();
+            queue.add(x);
+            repeatTimes--;
+
+        }
+
+        return queue;
     }
 
     public static Queue<String> reversedQue(Queue<String> queue) {
