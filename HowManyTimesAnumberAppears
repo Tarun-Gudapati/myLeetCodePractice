@@ -1,0 +1,31 @@
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class HowManyTimesAnumberAppears {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("enter the size of array : \n");
+        int size = sc.nextInt();
+        System.out.println("please enter the elements to fit inside the array");
+        int array[] = new int[size];
+        for (int i = 0; i < size; i++) {
+            array[i] = sc.nextInt();
+        }
+        Arrays.sort(array);
+        int hash[] = new int[array[array.length - 1] + 1];
+        for (int i = 0; i < size; i++) {
+            hash[array[i]] += 1;
+        }
+        System.out.println("enter the number of queries you want ");
+        int queries = sc.nextInt();
+        int[] q = new int[queries];
+        System.out.println("enter the queries");
+        for (int i = 0; i < queries; i++) {
+            q[i] = sc.nextInt();
+        }
+        for (int i = 0; i < queries; i++) {
+            System.out.printf("the number %d is repeated for %d times \n", q[i], hash[q[i]]);
+        }
+
+    }
+}
